@@ -48,42 +48,78 @@ Window {
         anchors.margins: 20
         spacing: 20
 
-        Repeater {
-            id: barRepeater
-            model: 5   // jumlah progress bar yang ingin ditampilkan
+        Item {
+            id: circSlot
+            width: barColumn.width
+            height: 300
+            property bool countingUp: true
 
-            delegate: Item {
-                id: barSlot
-                width: barColumn.width
-                height: 50
+            BgsProgresCircle {
+                id: circItem
+                anchors.fill: parent
+                value: 0
+                minimumValue: 0
+                maximumValue: 100
+                thickness: 30
+                bgColor: "black"
+                fillColor: "#00ff09"
+                bgOpacity: 0.5
+            }
 
-                property bool countingUp: true
-
-                BgsProgresBar {
-                    id: barItem
-                    anchors.fill: parent
-                    value: 0
-                    minimumValue: 0
-                    maximumValue: 100
+            Timer {
+                interval: 50
+                running: true
+                repeat: true
+                onTriggered: {
+                    if (circSlot.countingUp) {
+                        circItem.value += 1
+                        if (circItem.value >= circItem.maximumValue) {
+                            circItem.value = circItem.maximumValue
+                            circSlot.countingUp = false
+                        }
+                    } else {
+                        circItem.value -= 1
+                        if (circItem.value <= circItem.minimumValue) {
+                            circItem.value = circItem.minimumValue
+                            circSlot.countingUp = true
+                        }
+                    }
                 }
+            }
+        }
 
-                Timer {
-                    interval: 50 + index * 10   // kecepatan sedikit berbeda tiap bar (opsional)
-                    running: true
-                    repeat: true
-                    onTriggered: {
-                        if (barSlot.countingUp) {
-                            barItem.value += 1
-                            if (barItem.value >= barItem.maximumValue) {
-                                barItem.value = barItem.maximumValue
-                                barSlot.countingUp = false
-                            }
-                        } else {
-                            barItem.value -= 1
-                            if (barItem.value <= barItem.minimumValue) {
-                                barItem.value = barItem.minimumValue
-                                barSlot.countingUp = true
-                            }
+        Item {
+            id: barSlot
+            width: barColumn.width
+            height: 50
+            property bool countingUp: true
+
+            BgsProgresBar {
+                id: barItem
+                anchors.fill: parent
+                value: 0
+                minimumValue: 0
+                maximumValue: 100
+                bgColor: "black"
+                fillColor: "#00ff09"
+            }
+
+            Timer {
+                interval: 50
+                running: true
+                repeat: true
+                onTriggered: {
+                    if (barSlot.countingUp) {
+                        barItem.value += 1
+                        if (barItem.value >= barItem.maximumValue) {
+                            barItem.value = barItem.maximumValue
+                            barSlot.countingUp = false
+                        }
+                    } else {
+                        barItem.value -= 1
+                        if (barItem.value <= barItem.minimumValue) {
+                            barItem.value = barItem.minimumValue
+                            barSlot.countingUp = true
                         }
                     }
                 }

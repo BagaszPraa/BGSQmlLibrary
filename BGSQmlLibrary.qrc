@@ -7,6 +7,7 @@
         <file>BGSQmlLibrary/qmldir</file>
         <file>BGSQmlLibraryContent/App.qml</file>
         <file>BGSQmlLibraryContent/BgsProgresBar.ui.qml</file>
+        <file>BGSQmlLibraryContent/BgsProgresCircle.ui.qml</file>
         <file>BGSQmlLibraryContent/Screen01.ui.qml</file>
         <file>qtquickcontrols2.conf</file>
     </qresource>
