@@ -1,0 +1,13 @@
+<RCC>
+    <qresource>
+        <file>BGSQmlLibrary.qmlproject</file>
+        <file>BGSQmlLibrary/Constants.qml</file>
+        <file>BGSQmlLibrary/EventListModel.qml</file>
+        <file>BGSQmlLibrary/EventListSimulator.qml</file>
+        <file>BGSQmlLibrary/qmldir</file>
+        <file>BGSQmlLibraryContent/App.qml</file>
+        <file>BGSQmlLibraryContent/BgsProgresBar.ui.qml</file>
+        <file>BGSQmlLibraryContent/Screen01.ui.qml</file>
+        <file>qtquickcontrols2.conf</file>
+    </qresource>
+</RCC>
