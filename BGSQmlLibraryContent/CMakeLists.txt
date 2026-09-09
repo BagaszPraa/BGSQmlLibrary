@@ -10,7 +10,6 @@ qt6_add_qml_module(BGSQmlLibraryContent
     RESOURCE_PREFIX "/qt/qml"
     QML_FILES
         "App.qml"
-        "Screen01.ui.qml"
         "BgsProgresBar.ui.qml"
         "BgsProgresCircle.ui.qml"
 )
