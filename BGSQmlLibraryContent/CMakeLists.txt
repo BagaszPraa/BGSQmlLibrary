@@ -12,6 +12,8 @@ qt6_add_qml_module(BGSQmlLibraryContent
         "App.qml"
         "BgsProgresBar.ui.qml"
         "BgsProgresCircle.ui.qml"
+        "GaugeCircular.ui.qml"
+        "BgsGaugeCircular.ui.qml"
 )
 
 

@@ -125,5 +125,48 @@ Window {
                 }
             }
         }
+
+        Item {
+            id: gaugeSlot
+            width: barColumn.width
+            height: 480
+            property bool countingUp: true
+
+            BgsGaugeCircular {
+                id: gaugeItem
+                anchors.fill: parent
+                value: 0
+                minimumValue: 0
+                maximumValue: 50
+                textColor: "white"
+                textName: "Kecepatan Udara"
+                textUnit: "m/s"
+                useGradient: true
+                colorHigh: "#00ff09"    // hijau di value rendah
+                colorLow: "#ff1744"   // merah di value tinggi
+
+            }
+
+            Timer {
+                interval: 50
+                running: true
+                repeat: true
+                onTriggered: {
+                    if (gaugeSlot.countingUp) {
+                        gaugeItem.value += 1
+                        if (gaugeItem.value >= gaugeItem.maximumValue) {
+                            gaugeItem.value = gaugeItem.maximumValue
+                            gaugeSlot.countingUp = false
+                        }
+                    } else {
+                        gaugeItem.value -= 1
+                        if (gaugeItem.value <= gaugeItem.minimumValue) {
+                            gaugeItem.value = gaugeItem.minimumValue
+                            gaugeSlot.countingUp = true
+                        }
+                    }
+                }
+            }
+        }
     }
 }

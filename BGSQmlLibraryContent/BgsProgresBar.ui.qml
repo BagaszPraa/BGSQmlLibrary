@@ -1,7 +1,5 @@
 import QtQuick
-import QtQuick.Timeline 1.0
 import QtQuick.Controls
-import QtQuick.Studio.DesignEffects
 
 Item {
     id: _root
